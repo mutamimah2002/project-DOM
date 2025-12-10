@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar DOM</title>
+</head>
+<body>
+
+    <h1 id="judul">Tugas tercinta</h1>
+    <h2 id="pembuka">para pencinta seni hadir kembali</h2>
+    <h3 id="aku"> klik dibawah untuk mengubah warna</h3>
+
+    <label>Pilih warna: </label>
+    <input type="color" id="pilihWarna" onchange="manual = true">
+    <button onclick="ubah()">Ubah Sekarang</button>
+    
+    <style>
+.container {
+    background: #ffd6ec; /* Soft pink */
+    padding: 25px;
+    border-radius: 20px;
+    margin: 25px;
+    box-shadow: 0 0 15px rgba(187, 73, 132, 0.3);
+}
+</style>
+
+<div class="container">
+    rawatlah dirimu seperti tanaman singkirkan durinya, tapi biarkan bunga-bunga tumbuh diwaktu yang tepat ✨
+</div>
+<script>
+  
+    // Ganti isi judul
+    document.getElementById("judul").innerHTML = "DESAINER PINKY 💕";
+  document.getElementById("judul").style.color="hotpink";
+  document.getElementById("pembuka").style.color="purple";
+   document.getElementById("pembuka").style.backgroundColor="hotpink";
+    document.getElementById("aku").style.color="hotpink";
+    // Warna otomatis
+    let warnaOtomatis = ["pink", "hotpink", "deeppink", "lightpink"];
+    let index = 0;
+    let manual = false;
+
+    function ubah() {
+        let q = document.getElementById("pembuka");
+        let warna = document.getElementById("pilihWarna").value;
+
+        // Quotes lucu & aesthetic
+        q.innerText = "website penuh warna, biar hati enggak penuh drama 🎀😆";
+
+        // Mode manual atau otomatis
+        if (manual) {
+            q.style.color = warna;
+        } else {
+            q.style.color = warnaOtomatis[index];
+            index = (index + 1) % warnaOtomatis.length;
+        }
+    }
+</script>
+
+</body>
+</html>
